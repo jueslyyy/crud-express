@@ -1,4 +1,4 @@
-import  Id from "../shared/id";
+import  Id from "../shared/Id";
 
 export default class Produto{
     codigo: string;

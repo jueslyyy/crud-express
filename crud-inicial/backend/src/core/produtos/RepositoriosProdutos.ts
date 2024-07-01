@@ -6,5 +6,15 @@ export default class RepositorioProdutos{
                        new Produto("teclado", 99.99)];
     obterTodos(){
         return this.itens;
-    }                   
+    }  
+    
+    novo(nome:string, preco:number){
+        const novoProduto = new Produto(nome, preco);
+        this.itens.push(novoProduto);
+    }
+
+    obterPorCodigo(codigo:string){
+        const produto = this.itens.find((produto)=>produto.codigo === codigo);
+        return produto;
+    }
 }

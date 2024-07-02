@@ -21,6 +21,18 @@ export default function Login() {
 
 export async function actionLogin({ request }: any) {
     const dadosFormulario = await request.formData();
-    
+    const dadosParaVerificar = { email: dadosFormulario.get("email"), senha: dadosFormulario.get("senha") };
+    try {
+        const resposta = await Requisicao.post("/login", dadosParaVerificar);
+        if (resposta.token) {
+            //loga usuario // fazer alguma coisa com o token
+            Requisicao.adicionaToken(resposta.token);
+            return redirect("/inicio");
+        }
+    } catch {
+        window.alert("Usuário ou Senha incorretos");
+    }
+
+
     return null;
 }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useProdutos from "../hooks/useProdutos";
 
 export default function Tabela() {
-    const { produtos } = useProdutos()
+    const { produtos, excluirProduto } = useProdutos()
    
     function renderizarCabecalho() {
         return (
@@ -43,7 +43,9 @@ export default function Tabela() {
                 </button>
 
                 <button
-                    onClick={() => {}}
+                    onClick={() => {
+                        excluirProduto(codigo)
+                    }}
                     className={`
                         flex justify-center items-center
                         text-red-500 rounded-full p-2 m-1
